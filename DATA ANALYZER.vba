@@ -11,10 +11,10 @@ End Sub
 
 Sub Conversions()
 
-    Columns(5).EntireColumn.Delete
-    Columns(12).EntireColumn.Delete
-    Columns(15).EntireColumn.Delete
-    Columns(2).EntireColumn.Delete
+    Columns(A).EntireColumn.Delete
+    Columns(B).EntireColumn.Delete
+    Columns(C).EntireColumn.Delete
+Columns(D).EntireColumn.Delete
     
     Range("###").Value = "###"
     Range("###").Value = "###"
