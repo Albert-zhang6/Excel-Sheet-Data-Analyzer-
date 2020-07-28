@@ -16,85 +16,60 @@ Sub Conversions()
     Columns(15).EntireColumn.Delete
     Columns(2).EntireColumn.Delete
     
-    Range("N4").Value = "MOVE ASSET"
-    Range("O4").Value = "PROCESSING RESPONSIBILITY"
+    Range("###").Value = "###"
+    Range("###").Value = "###"
 
 End Sub
-
-
-Sub sort()
-
- Dim ws As Worksheet
- Set ws = ThisWorkbook.Worksheets(1)
-
- 
- ws.Rows("1").EntireRow.Hidden = True
- ws.Rows("2").EntireRow.Hidden = True
- ws.Rows("3").EntireRow.Hidden = True
- ws.Rows("4").EntireRow.Hidden = True
-
-    ws.UsedRange.Activate
-    
-    Selection.sort Key1:=Range("H5"), order1:=xlAscending
-    
-    'ws.Rows("1").EntireRow.Hidden = False
-    'ws.Rows("2").EntireRow.Hidden = False
-    'ws.Rows("3").EntireRow.Hidden = False
-    'ws.Rows("4").EntireRow.Hidden = False
- 
-
-End Sub
-
 
 Sub InputBoxPractice()
 
     Dim traDate As Date
     Dim setDate As Date
    
-    traDate = InputBox("Please type in Trade Date as sentence (Eg: January 5 2020)", "Trade Date")
-    setDate = InputBox("Please type in Settlement Date as sentence (Eg: January 5 2020)", "Settlement Date")
+    traDate = InputBox("###")
+    setDate = InputBox("###")
    
     Dim UsedRng As Range, LastRow As Long
     Set UsedRng = ActiveSheet.UsedRange
 
     LastRow = UsedRng(UsedRng.Cells.Count).Row
-    Range("H5").Select
+    Range("###").Select
     
     Do Until ActiveCell.Row = LastRow + 1
       
                 If traDate > ActiveCell Then
-                    ActiveCell.Offset(0, 6).Value = "Expired"
+                    ActiveCell.Offset(0, 6).Value = "###"
                 End If
                    
                 If traDate <= ActiveCell And ActiveCell <= setDate Then
                     
                     If ActiveCell.Offset(0, -2) = "I" Then
-                            If ActiveCell.Offset(0, -1) = "DVCA" Then
-                                 ActiveCell.Offset(0, 6).Value = "YES"
-                            ElseIf ActiveCell.Offset(0, -1) = "DRIP" Then
-                                 ActiveCell.Offset(0, 6).Value = "YES"
-                            Else: ActiveCell.Offset(0, 6).Value = "No"
+                            If ActiveCell.Offset(0, -1) = "###" Then
+                                 ActiveCell.Offset(0, 6).Value = "###"
+                            ElseIf ActiveCell.Offset(0, -1) = "###" Then
+                                 ActiveCell.Offset(0, 6).Value = "###"
+                            Else: ActiveCell.Offset(0, 6).Value = "###"
                             End If
                     
-                       ElseIf ActiveCell.Offset(0, -2) = "V" Then
-                            If ActiveCell.Offset(0, -1) = "DVCA" Then
-                                 ActiveCell.Offset(0, 6).Value = "YES"
-                            ElseIf ActiveCell.Offset(0, -1) = "DRIP" Then
-                                 ActiveCell.Offset(0, 6).Value = "YES"
-                            Else: ActiveCell.Offset(0, 6).Value = "No"
+                       ElseIf ActiveCell.Offset(0, -2) = "###" Then
+                            If ActiveCell.Offset(0, -1) = "###" Then
+                                 ActiveCell.Offset(0, 6).Value = "###"
+                            ElseIf ActiveCell.Offset(0, -1) = "###" Then
+                                 ActiveCell.Offset(0, 6).Value = "###"
+                            Else: ActiveCell.Offset(0, 6).Value = "###"
                             End If
                         
                        ElseIf ActiveCell.Offset(0, -2).Value = "N" Then
-                       ActiveCell.Offset(0, 6).Value = "Yes"
+                       ActiveCell.Offset(0, 6).Value = "###"
                             
-                       ElseIf ActiveCell.Offset(0, -2) = "D" Then
-                       ActiveCell.Offset(0, 6).Value = "Yes"
+                       ElseIf ActiveCell.Offset(0, -2) = "###" Then
+                       ActiveCell.Offset(0, 6).Value = "###"
                     End If
                         
                 End If
             
                 If traDate < ActiveCell And ActiveCell >= setDate Then
-                    ActiveCell.Offset(0, 6).Value = "YES"
+                    ActiveCell.Offset(0, 6).Value = "###"
                 End If
 
     
@@ -109,32 +84,32 @@ Sub outgoingInput()
 
     Dim setDate As Date
    
-    setDate = InputBox("Please type in Settlement Date as sentence (Eg: January 5 2020)", "Settlement Date")
+    setDate = InputBox("###")
    
     Dim UsedRng As Range, LastRow As Long
     Set UsedRng = ActiveSheet.UsedRange
     
 
     LastRow = UsedRng(UsedRng.Cells.Count).Row
-    Range("I5").Select
+    Range("###").Select
     
     Do Until ActiveCell.Row = LastRow + 1
       
-                If setDate >= ActiveCell And ActiveCell <> "00/00/00" Then
-                    ActiveCell.Offset(0, 6).Value = "OLD CUSTODIAN SSB"
+                If setDate >= ActiveCell And ActiveCell <> "###" Then
+                    ActiveCell.Offset(0, 6).Value = ""
                     
-                    ElseIf ActiveCell > setDate And ActiveCell <> "00/00/00" Then
-                    ActiveCell.Offset(0, 6).Value = "NEW CUSTODIAN"
+                    ElseIf ActiveCell > setDate And ActiveCell <> "###" Then
+                    ActiveCell.Offset(0, 6).Value = ""
                 
                 End If
                 
-                If ActiveCell = "00/00/00" Then
-                    If ActiveCell = "00/00/00" Then ActiveCell.Offset(0, -1).Activate
+                If ActiveCell = "###" Then
+                    If ActiveCell = "###" Then ActiveCell.Offset(0, -1).Activate
                         If setDate >= ActiveCell Then
-                        ActiveCell.Offset(0, 7).Value = "OLD CUSTODIAN SSB"
+                        ActiveCell.Offset(0, 7).Value = ""
                         ActiveCell.Offset(0, 1).Select
                         ElseIf ActiveCell > setDate Then
-                        ActiveCell.Offset(0, 7).Value = "NEW CUSTODIAN"
+                        ActiveCell.Offset(0, 7).Value = ""
                         ActiveCell.Offset(0, 1).Select
                         End If
                 End If
@@ -152,11 +127,11 @@ Sub highlight()
    
 
     LastRow = UsedRng(UsedRng.Cells.Count).Row
-    Range("N5").Select
+    Range("###").Select
     
         Do Until ActiveCell.Row = LastRow
     
-                If ActiveCell = "No" Then
+                If ActiveCell = "###" Then
                     ActiveCell.EntireRow.Interior.ColorIndex = 8
                 End If
                 
